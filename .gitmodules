@@ -1,6 +1,6 @@
 [submodule "kitty/.config/kitty/kitty-themes"]
 	path = kitty/.config/kitty/kitty-themes
-	url = git@github.com:dexpota/kitty-themes.git
+	url = git@github.com:catppuccin/kitty.git
 [submodule "mpv/.config/mpv/mpv-youtube-quality"]
 	path = mpv/.config/mpv/mpv-youtube-quality
 	url = git@github.com:jgreco/mpv-youtube-quality.git
