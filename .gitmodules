@@ -4,12 +4,9 @@
 [submodule "mpv/.config/mpv/mpv-youtube-quality"]
 	path = mpv/.config/mpv/mpv-youtube-quality
 	url = git@github.com:jgreco/mpv-youtube-quality.git
-[submodule "tmux/.plugins/tpm"]
-	path = tmux/.plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule "mozilla/firefox-minima"]
-	path = mozilla/firefox-minima
-	url = https://github.com/rockofox/firefox-minima.git
 [submodule "private"]
 	path = private
 	url = git@github.com:przempore/private.git
+[submodule "firefox-minima"]
+	path = firefox-minima
+	url = git@github.com:rockofox/firefox-minima.git
