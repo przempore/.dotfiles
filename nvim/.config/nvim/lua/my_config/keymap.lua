@@ -25,8 +25,7 @@ function M.format()
         elseif vim.bo.filetype == 'cpp' then
             vim.cmd('ClangFormat')
         elseif vim.bo.filetype == 'go' then
-            vim.cmd(':w')
-            vim.cmd('!gofmt -w % > /dev/null')
+            vim.cmd('GoFmt')
         else
             print("Can't format", vim.bo.filetype, "file")
         end
