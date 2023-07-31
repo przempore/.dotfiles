@@ -2,7 +2,7 @@ starship init fish | source
 
 set EDITOR nvim
 
-set -gx PATH $HOME/.cargo/bin $HOME/.local/bin $HOME/.local/bin/private $HOME/.local/share/nvim/lsp_servers/rust $PATH
+set -gx PATH $HOME/.cargo/bin $HOME/.local/bin $HOME/.local/bin/private $HOME/.local/share/nvim/lsp_servers/rust $HOME/go/bin $PATH
 
 function s
     kitty +kitten ssh $argv
