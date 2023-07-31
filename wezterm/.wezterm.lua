@@ -21,10 +21,10 @@ end
 config.color_scheme = 'Catppuccin Mocha'
 config.window_background_opacity = 0.95
 
-config.font = wezterm.font_with_fallback {
-  'JetBrainsMono Nerd Font Mono',
-  'nonicons',
-}
+-- config.font = wezterm.font_with_fallback {
+--   'JetBrainsMono Nerd Font Mono',
+--   'nonicons',
+-- }
 
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false
