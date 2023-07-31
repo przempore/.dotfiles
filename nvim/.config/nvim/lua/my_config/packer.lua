@@ -111,7 +111,7 @@ local packages = require('packer').startup(function()
 
     use {'hrsh7th/cmp-nvim-lsp-document-symbol'}
 
-    use { 'codota/tabnine-nvim', build = tabnine_build_path() }
+    use { 'codota/tabnine-nvim', run = tabnine_build_path() }
 
     use {
         'tzachar/cmp-tabnine',
@@ -163,38 +163,13 @@ local packages = require('packer').startup(function()
 
     use {'eandrju/cellular-automaton.nvim'}
 
-    use {
-        "glepnir/lspsaga.nvim",
-        opt = true,
-        branch = "main",
-        event = "LspAttach",
+    use ({
+        'nvimdev/lspsaga.nvim',
+        after = 'nvim-lspconfig',
         config = function()
-            require("lspsaga").setup({
-              preview = {
-                lines_above = 0,
-                lines_below = 10,
-              },
-              scroll_preview = {
-                scroll_down = "<C-f>",
-                scroll_up = "<C-b>",
-              },
-              request_timeout = 2000,
-
-              -- See Customizing Lspsaga's Appearance
-              -- ui = { ... },
-
-              -- For default options for each command, see below
-              -- finder = { ... },
-              -- code_action = { ... }
-              -- etc.
-            })
+            require('lspsaga').setup({})
         end,
-        requires = {
-            {"nvim-tree/nvim-web-devicons"},
-            --Please make sure you install markdown and markdown_inline parser
-            {"nvim-treesitter/nvim-treesitter"}
-        }
-    }
+    })
 
     use {'rcarriga/nvim-notify'} -- Notify popup
 
