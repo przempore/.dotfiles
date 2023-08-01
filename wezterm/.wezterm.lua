@@ -20,10 +20,10 @@ end
 config.color_scheme = 'Catppuccin Mocha'
 config.window_background_opacity = 0.95
 
--- config.font = wezterm.font_with_fallback {
---   'JetBrainsMono Nerd Font Mono',
---   'nonicons',
--- }
+config.font = wezterm.font_with_fallback {
+  'JetBrainsMono Nerd Font Mono',
+  'JetBrains Mono',
+}
 
 config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
 config.keys = {
