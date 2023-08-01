@@ -15,7 +15,6 @@ end
 -- For example, changing the color scheme:
 -- config.color_scheme = 'Batman'
 
--- Set background to same color as neovim
 -- config.colors = {}
 -- config.colors.background = '#111111'
 config.color_scheme = 'Catppuccin Mocha'
@@ -26,16 +25,35 @@ config.window_background_opacity = 0.95
 --   'nonicons',
 -- }
 
+config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
+config.keys = {
+  {
+    key = '|',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"},
+  },
+  {
+    key = '_',
+    mods = 'LEADER|SHIFT',
+    action = wezterm.action.SplitVertical{domain="CurrentPaneDomain"},
+  },
+  {
+    key = 'h',
+    mods = 'SHIFT|CTRL',
+    action = wezterm.action.ActivateCopyMode,
+  },
+}
+
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false
 
 -- I don't like putting anything at the ege if I can help it.
 config.enable_scroll_bar = false
 config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
+  left = 2,
+  right = 2,
+  top = 2,
+  bottom = 2,
 }
 
 config.tab_bar_at_bottom = true
