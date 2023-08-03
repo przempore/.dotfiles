@@ -56,9 +56,42 @@ config.window_padding = {
   bottom = 2,
 }
 
+-- config.use_fancy_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.freetype_load_target = "HorizontalLcd"
+
+local system_username = os.getenv('USERNAME');
+print(system_username);
+config.ssh_domains = {
+  {
+    -- This name identifies the domain
+    name = 'localhost',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = 'localhost',
+    -- The username to use on the remote host
+    username = system_username,
+  },
+  {
+    -- This name identifies the domain
+    name = 'Ilum',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = 'Ilum',
+    -- The username to use on the remote host
+    username = 'przemek',
+  },
+  {
+    -- This name identifies the domain
+    name = 'dooku',
+    -- The hostname or address to connect to. Will be used to match settings
+    -- from your ssh config file
+    remote_address = 'dooku',
+    -- The username to use on the remote host
+    username = 'porebski',
+  },
+}
 
 -- and finally, return the configuration to wezterm
 return config
