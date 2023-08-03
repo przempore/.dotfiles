@@ -107,12 +107,16 @@ local function work_setup(args)
   }
 
   tab:set_title 'sentinel'
+  pane:send_text 'tsh_login\n'
+  pane:send_text 'vi .\n'
   local tab, pane, window = window:spawn_tab {
     cwd = wezterm.home_dir,
     args = args,
   }
   tab:set_title 'windows'
+  pane:send_text 'if test "$(virsh domstate win10)" = "shut off"; start win10;sleep 10;end;\n'
   pane:send_text 'ssh windows\n'
+  pane:send_text 'setup.bat\r\n'
 end
 
 local function home_setup(args)
@@ -131,9 +135,9 @@ wezterm.on('gui-startup', function(cmd)
     args = cmd.args
   end
 
-  if work(cmd) then 
+  if work() then
     work_setup(args)
-  else 
+  else
     home_setup(args)
   end
 end)
