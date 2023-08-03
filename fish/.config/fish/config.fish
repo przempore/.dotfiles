@@ -56,6 +56,12 @@ function vi
     nvim $argv
 end
 
+if set -q IS_WEZTERM
+    function rename_tab
+        wezterm cli set-tab-title $argv
+    end
+end
+
 [ -f /home/porebski/.dotfiles/private/fish/config.fish ]; and source /home/porebski/.dotfiles/private/fish/config.fish
 
 # colored man output

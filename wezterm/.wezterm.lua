@@ -1,5 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
+local mux = wezterm.mux
 
 -- This table will hold the configuration.
 local config = {}
@@ -11,6 +12,9 @@ if wezterm.config_builder then
 end
 
 -- This is where you actually apply your config choices
+config.set_environment_variables = {
+  IS_WEZTERM = "true"
+}
 
 -- For example, changing the color scheme:
 -- config.color_scheme = 'Batman'
@@ -20,6 +24,7 @@ end
 config.color_scheme = 'Catppuccin Mocha'
 config.window_background_opacity = 0.95
 
+config.font_size = 11.0
 config.font = wezterm.font_with_fallback {
   'JetBrainsMono Nerd Font Mono',
   'JetBrainsMono Nerd Font',
@@ -66,15 +71,6 @@ print(system_username);
 config.ssh_domains = {
   {
     -- This name identifies the domain
-    name = 'localhost',
-    -- The hostname or address to connect to. Will be used to match settings
-    -- from your ssh config file
-    remote_address = 'localhost',
-    -- The username to use on the remote host
-    username = system_username,
-  },
-  {
-    -- This name identifies the domain
     name = 'Ilum',
     -- The hostname or address to connect to. Will be used to match settings
     -- from your ssh config file
@@ -83,13 +79,69 @@ config.ssh_domains = {
     username = 'przemek',
   },
   {
-    -- This name identifies the domain
     name = 'dooku',
-    -- The hostname or address to connect to. Will be used to match settings
-    -- from your ssh config file
     remote_address = 'dooku',
-    -- The username to use on the remote host
     username = 'porebski',
+  },
+}
+
+local function getHostname()
+  local f = io.popen ("/bin/hostnamectl hostname")
+  if not f then return 'not found' end
+  local hostname = f:read("*a")
+  hostname = hostname:gsub("\n", "")
+  f:close()
+  return hostname
+end
+
+local function work()
+  local hostname = getHostname()
+  return hostname == 'dooku'
+end
+
+local function work_setup(args)
+  local project_path = wezterm.home_dir .. '/Projects/sentinel'
+  local tab, pane, window = mux.spawn_window {
+    cwd = project_path,
+    args = args,
+  }
+
+  tab:set_title 'sentinel'
+  local tab, pane, window = window:spawn_tab {
+    cwd = wezterm.home_dir,
+    args = args,
+  }
+  tab:set_title 'windows'
+  pane:send_text 'ssh windows\n'
+end
+
+local function home_setup(args)
+  local tab, pane, window = mux.spawn_window {
+    cwd = wezterm.home_dir,
+    args = args,
+  }
+  tab:set_title 'home'
+end
+
+wezterm.on('gui-startup', function(cmd)
+  -- allow `wezterm start -- something` to affect what we spawn
+  -- in our initial window
+  local args = {}
+  if cmd then
+    args = cmd.args
+  end
+
+  if work(cmd) then 
+    work_setup(args)
+  else 
+    home_setup(args)
+  end
+end)
+
+
+config.unix_domains = {
+  {
+    name = 'localhost',
   },
 }
 
