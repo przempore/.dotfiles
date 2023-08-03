@@ -114,7 +114,7 @@ local function work_setup(args)
     args = args,
   }
   tab:set_title 'windows'
-  pane:send_text 'if test "$(virsh domstate win10)" = "shut off"; start win10;sleep 10;end;\n'
+  pane:send_text 'if test "$(virsh domstate win10)" = "shut off";virsh start win10;sleep 10;end;\n'
   pane:send_text 'ssh windows\n'
   pane:send_text 'setup.bat\r\n'
 end
