@@ -22,7 +22,7 @@ config.window_background_opacity = 0.95
 
 config.font = wezterm.font_with_fallback {
   'JetBrainsMono Nerd Font Mono',
-  'JetBrains Mono',
+  'JetBrainsMono Nerd Font',
 }
 
 config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
@@ -56,6 +56,7 @@ config.window_padding = {
   bottom = 2,
 }
 
+config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.freetype_load_target = "HorizontalLcd"
 
