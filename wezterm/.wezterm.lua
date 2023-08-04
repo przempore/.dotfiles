@@ -24,11 +24,15 @@ config.set_environment_variables = {
 config.color_scheme = 'Catppuccin Mocha'
 config.window_background_opacity = 0.95
 
-config.font_size = 11.0
-config.font = wezterm.font_with_fallback {
-  'JetBrainsMono Nerd Font Mono',
-  'JetBrainsMono Nerd Font',
-}
+config.font_size = 10.0
+config.font =
+  wezterm.font('JetBrainsMono Nerd Font Mono', { weight = 'Bold', italic = false })
+
+-- config.font = wezterm.font_with_fallback {
+--   'JetBrainsMono Nerd Font Mono',
+--   'JetBrainsMono Nerd Font',
+--   'Iosevka Nerd Font Mono',
+-- }
 
 config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
 config.keys = {
