@@ -63,6 +63,13 @@ function do_bspwm_monitors {
 
 connected=`xrandr --query | grep -w "connected" | awk '{print $1}'`
 count=`xrandr | grep " connected " | awk '{ print$1 }' | wc -l`
+names=`xrandr | grep " connected " | awk '{ print$1 }'`
+for name in $names; do
+    echo "name: $name"
+    if [[ $name == "None-1-1" ]]; then
+        ((count = count-1))
+    fi
+done
 echo "count: $count"
 
 main_display="--output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal"
