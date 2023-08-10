@@ -49,6 +49,8 @@ in
     LC_TIME = "de_DE.UTF-8";
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -70,7 +72,8 @@ in
     layout = "pl";
     xkbVariant = "dvp";
   };
-  # services.xserver.displayManager.sessionCommands = "setxkbmap -layout pl -variant real-prog-dvorak";
+
+  services.logind.extraConfig = "RuntimeDirectorySize=4G"; # I don't know if that's needed
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -126,6 +129,7 @@ in
     home-manager
     neovim
     fish
+    any-nix-shell
     wget
     ripgrep
     firefox
@@ -138,7 +142,14 @@ in
     killall
 
     gcc
-    llvmPackages_16.libllvm
+    # llvmPackages_rocm.clang-tools-extra
+    # llvmPackages_16.clang-unwrapped
+    # llvmPackages_16.libllvm
+    # llvmPackages_16.libcxxClang
+    # llvmPackages_16.libcxx
+    clang-tools
+    clang
+    # clangStdenv
     cmake
     ninja
     ccache
@@ -146,6 +157,7 @@ in
     cargo
     rustup
     rustfmt
+    rust-analyzer
     go
     gopls
     black
@@ -153,11 +165,6 @@ in
     nodejs
     nodePackages_latest.pyright
 
-    libsForQt5.qtinstaller
-    # libsForQt5.full
-    qtcreator
-    jetbrains.pycharm-professional
-    docker
 
     geany
     git

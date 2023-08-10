@@ -7,8 +7,19 @@ let
     rev = "ba4d16880d63e656acced2b7d4e034e4a93f74b1";
     sha256 = "sha256-6WVKQErGdaqb++oaXnY3i6/GuH2FhTgK0v4TN4Y0Wbw=";
   };
-  wazterm_config = builtins.readFile /home/przemek/.dotfiles/wezterm/.wezterm.lua;
-
+  wezterm_config = builtins.readFile(/home/przemek/.dotfiles/wezterm/.wezterm.lua);
+  ranger_config = builtins.readFile(/home/przemek/.dotfiles/ranger/.config/ranger/rc.conf);
+  tabnine-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "tabnine-nvim";
+    src = pkgs.fetchFromGitHub {
+      owner = "codota";
+      repo = "tabnie-nvim";
+      rev = "352485ea136e9593a5a7dada12eec17a8def881f";
+      buildPhase = ''
+        ./dl_binaries.sh
+      '';
+    };
+  };
 in
 {
   home.username = "przemek";
@@ -73,6 +84,17 @@ in
       userName = "Przemek";
     };
 
+    fish = {
+      enable = true;
+      shellAliases = {
+        vi = "nvim";
+      };
+      interactiveShellInit = ''
+        fish_add_path = /home/przemek/.local/share/nvim/mason/bin/;
+        any-nix-shell fish --info-right | source
+      '';
+    };
+
     bat = {
       enable = true;
       config = { theme = "catppuccin"; };
@@ -86,6 +108,7 @@ in
       enable = true;
 
       plugins = with pkgs; [
+        # tabnine-nvim
         vimPlugins.copilot-vim
         vimPlugins.vim-fugitive
         vimPlugins.vim-rhubarb
@@ -124,15 +147,14 @@ in
         vimPlugins.lspkind-nvim
         vimPlugins.lsp_extensions-nvim
         vimPlugins.cmp-nvim-lsp-document-symbol
-        vimPlugins.tabnine-vim
         vimPlugins.cmp-tabnine
         vimPlugins.vim-clang-format
         vimPlugins.undotree
         vimPlugins.nvim-web-devicons
         vimPlugins.nvim-treesitter.withAllGrammars
+        vimPlugins.nvim-treesitter-context
         vimPlugins.nvim-treesitter-textobjects
         vimPlugins.playground
-        vimPlugins.nvim-treesitter-context
         vimPlugins.markdown-preview-nvim
         vimPlugins.zen-mode-nvim
         vimPlugins.comment-nvim
