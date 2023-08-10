@@ -130,8 +130,8 @@ in
         vi = "nvim";
       };
       interactiveShellInit = ''
-        fish_add_path = /home/przemek/.local/share/nvim/mason/bin/;
         any-nix-shell fish --info-right | source
+        [ -f /home/porebski/.dotfiles/private/fish/config.fish ]; and source /home/porebski/.dotfiles/private/fish/config.fish
       '';
     };
 
