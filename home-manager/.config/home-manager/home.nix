@@ -20,6 +20,7 @@ let
       '';
     };
   };
+  pkgsUnstable = import <nixpkgs-unstable> {};
 in
 {
   home.username = "przemek";
@@ -30,6 +31,7 @@ in
   home = {
     packages = with pkgs; [
       firefox
+      pkgsUnstable.neocmakelsp
     ];
 
     sessionVariables = {
