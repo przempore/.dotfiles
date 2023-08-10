@@ -142,15 +142,10 @@ in
     killall
 
     gcc
-    # llvmPackages_rocm.clang-tools-extra
-    # llvmPackages_16.clang-unwrapped
-    # llvmPackages_16.libllvm
-    # llvmPackages_16.libcxxClang
-    # llvmPackages_16.libcxx
     clang-tools
     clang
-    # clangStdenv
     cmake
+    # neocmakelsp # why that doesn't work?
     ninja
     ccache
     sccache
@@ -164,7 +159,6 @@ in
     mypy
     nodejs
     nodePackages_latest.pyright
-
 
     geany
     git
