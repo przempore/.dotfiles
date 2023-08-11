@@ -20,6 +20,10 @@ let
       '';
     };
   };
+  my_config-nvim = pkgs.vimUtils.buildVimPlugin {
+    name = "my_config-nvim";
+    src = /home/przemek/.dotfiles/nvim-nix;
+  };
   pkgsUnstable = import <nixpkgs-unstable> {};
 in
 {
@@ -128,6 +132,8 @@ in
       enable = true;
       shellAliases = {
         vi = "nvim";
+        ll = "exa --tree --level=1 --long --icons --git -lh";
+        lh = "ll -lah";
       };
       interactiveShellInit = ''
         any-nix-shell fish --info-right | source
@@ -204,6 +210,8 @@ in
         vimPlugins.nvim-notify
         vimPlugins.nvim-lint
         vimPlugins.vim-go
+
+        my_config-nvim
       ];
 
       extraPackages = with pkgs; [

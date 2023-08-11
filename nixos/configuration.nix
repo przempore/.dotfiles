@@ -118,6 +118,7 @@ in
     dejavu_fonts
     liberation_ttf
     source-code-pro
+    siji
     (nerdfonts.override { fonts = [ "JetBrainsMono" "Iosevka" ]; })
   ];
 
@@ -128,6 +129,7 @@ in
 
     home-manager
     neovim
+    tabnine
     fish
     any-nix-shell
     wget
