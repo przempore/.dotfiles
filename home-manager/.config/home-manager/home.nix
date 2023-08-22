@@ -43,14 +43,17 @@ in
       SHELL = "fish";
       VISUAL = "nvim";
     };
+    keyboard = null;
+    activation.linkDotfiles = config.lib.dag.entryAfter [ "writeBoundary" ]
+      ''
+      ln -sfn $HOME/.dotfiles/ranger/.config/ranger/rc.conf       $HOME/.config/ranger/rc.conf
+      '';
   };
 
-  home.keyboard = null;
-
-  home.activation.linkDotfiles = config.lib.dag.entryAfter [ "writeBoundary" ]
-    ''
-    ln -sfn $HOME/.dotfiles/ranger/.config/ranger/rc.conf       $HOME/.config/ranger/rc.conf
-    '';
+  xdg.configFile.nvim = {
+    enable = true;
+    source = "/home/przemek/.dotfiles/nvim/.config/nvim";
+  };
 
   programs = {
     firefox = {
@@ -152,6 +155,9 @@ in
 
     neovim = {
       enable = true;
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
 
       plugins = with pkgs; [
         # tabnine-nvim
@@ -210,8 +216,6 @@ in
         vimPlugins.nvim-notify
         vimPlugins.nvim-lint
         vimPlugins.vim-go
-
-        my_config-nvim
       ];
 
       extraPackages = with pkgs; [
