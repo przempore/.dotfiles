@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, helix, ... }:
 
 let
   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
@@ -13,7 +13,8 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>
+      # ./nix-alien.nix
+      # <home-manager/nixos>
     ];
 
   # Bootloader.
@@ -81,6 +82,7 @@ in
   # Enable sound with pipewire.
   sound.enable = true;
   hardware.pulseaudio.enable = false;
+  hardware.opengl.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -113,7 +115,7 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     noto-fonts-emoji
     dejavu_fonts
     liberation_ttf
@@ -128,6 +130,7 @@ in
     # hyprland
 
     home-manager
+    direnv
     neovim
     tabnine
     fish
@@ -139,6 +142,9 @@ in
     autojump
     youtube-dl
     keepassxc
+
+    # Install Helix from the `helix` input
+    helix.packages."${pkgs.system}".helix
 
     xorg.xbacklight
     killall
@@ -161,6 +167,7 @@ in
     mypy
     nodejs
     nodePackages_latest.pyright
+    # vivictpp
 
     geany
     git
@@ -170,6 +177,7 @@ in
     xfce.xfce4-power-manager
     arandr
 
+    tmux
     polybar
     kitty
     wezterm
