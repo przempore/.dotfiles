@@ -37,7 +37,7 @@ in
 
     packages = with pkgs; [
       cachix
-      # pkgsUnstable.neocmakelsp
+      neocmakelsp
     ];
 
     sessionVariables = {
@@ -55,20 +55,7 @@ in
     stateVersion = "23.05";
   };
 
-  # xdg = {
-  #   enable = true;
-  #   configHome.folder.".config/nvim".source = 
-  # };
-
-  # xdg.configFile = { 
-  #   nvim = {
-  #     enable = true;
-  #     source = /home/przemek/.dotfiles/nvim/.config/nvim;
-  #   };
-  # };
-
   programs = {
-
     fish = {
       enable = true;
       shellAliases = {
