@@ -36,6 +36,7 @@ in
     homeDirectory = "/home/przemek";
 
     packages = with pkgs; [
+      cachix
       # pkgsUnstable.neocmakelsp
     ];
 

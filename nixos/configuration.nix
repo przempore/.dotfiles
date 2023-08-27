@@ -51,6 +51,7 @@ in
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.trusted-users = [ "root" "przemek" ];
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
