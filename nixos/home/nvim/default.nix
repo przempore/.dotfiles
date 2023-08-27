@@ -10,6 +10,7 @@
 
   programs.neovim = {
     enable = true;
+    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
     vimdiffAlias = true;
@@ -105,8 +106,15 @@
       rustfmt
 
       # tools
+      cmake
+      cmake-language-server
+      gnumake
+      checkmake
       cargo
       gcc
+      llvmPackages.clang-unwrapped # c/c++ tools with clang-tools such as clangd
+      gdb
+      lldb
       ghc
       lazydocker
       yarn

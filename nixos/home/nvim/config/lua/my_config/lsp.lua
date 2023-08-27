@@ -1,29 +1,4 @@
 local Remap = require("my_config.keymap")
-local nnoremap = Remap.nnoremap
-local inoremap = Remap.inoremap
-
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-        }
-    }
-})
-
-require("mason-lspconfig").setup({
-    ensure_installed = {
-    "lua_ls",
-    "rust_analyzer",
-    "clangd",
-    "pyright",
-    -- "neocmake",
-    "jsonls",
-    "marksman",
-    "gopls",
-    }
-})
 
 require("lspconfig").lua_ls.setup{}
 
@@ -75,7 +50,7 @@ require('lspconfig').clangd.setup {
 }
 
 require('lspconfig').pyright.setup{}
--- require('lspconfig').neocmake.setup{}
+require('lspconfig').neocmake.setup{}
 require('lspconfig').jsonls.setup{}
 require('lspconfig').marksman.setup{}
 require('lspconfig').ruby_ls.setup{}
