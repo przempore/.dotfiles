@@ -1,8 +1,4 @@
 require'nvim-treesitter.configs'.setup {
-    -- ensure_installed = {"c", "cpp", "bash", "cmake", "diff", "dockerfile", "dot", "fish", "git_rebase",
-    --                     "gitattributes", "gitcommit", "gitignore", "json", "markdown", "meson", "proto",
-    --                     "go", "latex", "llvm", "make", "lua", "ninja", "perl", "ql", "qmljs", "scheme",
-    --                     "sql", "todotxt", "python", "rust", "sxhkdrc", "toml", "vim", "yaml"},
     sync_install = false,
 
     highlight = {

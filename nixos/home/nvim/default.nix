@@ -80,6 +80,7 @@
       nodejs
       python311Full
       rustc
+      marksman
 
       # language servers
       gopls

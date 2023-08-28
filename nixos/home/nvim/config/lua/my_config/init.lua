@@ -89,6 +89,9 @@ require('lualine').setup {
 -- Enable Comment.nvim
 require('Comment').setup()
 
+-- Enable gitsigns.nvim
+require('gitsigns').setup()
+
 -- Turn on lsp status information
 require('fidget').setup()
 
