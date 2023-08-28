@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, helix, ... }:
+{ config, pkgs, ... }:
 
 let
   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
@@ -21,6 +21,8 @@ in
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/vda";
   boot.loader.grub.useOSProber = true;
+
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # Limit the number of generations to keep
   boot.loader.systemd-boot.configurationLimit = 10;
@@ -160,9 +162,6 @@ in
     autojump
     youtube-dl
     keepassxc
-
-    # Install Helix from the `helix` input
-    helix.packages."${pkgs.system}".helix
 
     xorg.xbacklight
     killall
