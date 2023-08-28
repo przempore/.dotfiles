@@ -6,7 +6,7 @@
 
 let
   compiledLayout = pkgs.runCommand "keyboard-layout" {} ''
-    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${/home/przemek/.dotfiles/keyboard/symbols/real-prog-dvorak.xkb} $out
+    ${pkgs.xorg.xkbcomp}/bin/xkbcomp ${ ./keyboard/symbols/real-prog-dvorak.xkb} $out
   '';
 in
 {
@@ -75,23 +75,38 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the bspwm Desktop Environment.
-  services.xserver.windowManager.bspwm.enable = true;
-  services.xserver.displayManager = {
-    lightdm = {
-      enable = true;
-      greeter.enable = true;
-    };
-    sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
-  };
-
+#   programs.hyprland = {
+#     enable = true;
+#     # nvidiaPatches = true;
+#     xwayland.enable = true;
+#   };
+#
+#   environment.sessionVariables = {
+#     # If your cursor becomes invisible
+#     WLR_NO_HARDWARE_CURSORS = "1";
+#     # Hint electron apps to use wayland
+#     NIXOS_OZONE_WL = "1";
+#   };
+#
+# # XDG portal
+#   xdg.portal.enable = true;
+#   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+#
   # Configure keymap in X11
   services.xserver = {
     autoRepeatDelay = 200;
     autoRepeatInterval = 25;
 
+    displayManager = {
+      lightdm = {
+        enable = true;
+        greeter.enable = true;
+      };
+      sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
+    };
     layout = "pl";
     xkbVariant = "dvp";
+    windowManager.bspwm.enable = true;
   };
 
   services.logind.extraConfig = "RuntimeDirectorySize=4G"; # I don't know if that's needed
@@ -103,6 +118,7 @@ in
   sound.enable = true;
   hardware.pulseaudio.enable = false;
   hardware.opengl.enable = true;
+  # hardware.nvidia.modesetting.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -147,6 +163,11 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+# waybar
+    # (pkgs.waybar.overrideAttrs (oldAttrs: {
+    #     mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+    #   })
+    # )
     # hyprland
 
     home-manager
@@ -214,6 +235,20 @@ in
     xfce.thunar
     xfce.thunar-volman
     xfce.thunar-archive-plugin
+
+    # waybar
+    # eww
+    # dunst
+    # mako
+    # rofi-wayland
+    # wofi
+    #
+    # bemenu
+    # fuzzel
+    # tofi
+    # hyprpaper
+    # wpaperd
+    # swww
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -225,14 +260,6 @@ in
   # };
   programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
-
-  # programs.hyprland.enable = true;
-  # programs.hyprland = {
-  #   enable = true;
-  #   nvidiaPatches = true;
-  #   xwayland.enable = true;
-  # };
-
 
   # List services that you want to enable:
 

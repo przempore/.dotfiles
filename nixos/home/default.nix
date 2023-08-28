@@ -18,11 +18,6 @@ let
       '';
     };
   };
-  # my_config-nvim = pkgs.vimUtils.buildVimPlugin {
-  #   name = "my_config-nvim";
-  #   src = home.homeDirectory/.dotfiles/nvim-nix;
-  # };
-  # pkgsUnstable = import <nixpkgs-unstable> {};
 in
 {
   imports = [
@@ -30,6 +25,8 @@ in
     ./firefox.nix
     ./git.nix
     ./tmux.nix
+    ./fish.nix
+    # ./sxhkd.nix
   ];
   home = {
     username = "przemek";
@@ -56,19 +53,6 @@ in
   };
 
   programs = {
-    fish = {
-      enable = true;
-      shellAliases = {
-        vi = "nvim";
-        ll = "exa --tree --level=1 --long --icons --git -lh";
-        lh = "ll -lah";
-      };
-      interactiveShellInit = ''
-        any-nix-shell fish --info-right | source
-        [ -f /home/porebski/.dotfiles/private/fish/config.fish ]; and source /home/porebski/.dotfiles/private/fish/config.fish
-      '';
-    };
-
     bat = {
       enable = true;
       config = { theme = "catppuccin"; };

@@ -6,8 +6,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nix-alien.url = "github:thiagokokada/nix-alien";
-
-    helix.url = "github:helix-editor/helix/23.05";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nix-alien, ... }:
