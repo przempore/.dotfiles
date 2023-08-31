@@ -92,21 +92,29 @@ in
 #   xdg.portal.enable = true;
 #   xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
 #
+
+  # LightDM Display Manager
+  services.xserver.displayManager.defaultSession = "none+bspwm";
+  services.xserver.displayManager.sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
+  services.xserver.displayManager.lightdm = {
+    enable = true;
+    greeters.slick.enable = true;
+    # greeter.enable = true;
+  };
+
+  # Tiling window manager
+  services.xserver.windowManager.bspwm = {
+    enable = true;
+    configFile = ./config/bspwmrc;
+    sxhkd.configFile = ./config/sxhkdrc;
+  };
+
   # Configure keymap in X11
   services.xserver = {
     autoRepeatDelay = 200;
     autoRepeatInterval = 25;
-
-    displayManager = {
-      lightdm = {
-        enable = true;
-        greeter.enable = true;
-      };
-      sessionCommands = "${pkgs.xorg.xkbcomp}/bin/xkbcomp ${compiledLayout} $DISPLAY";
-    };
     layout = "pl";
     xkbVariant = "dvp";
-    windowManager.bspwm.enable = true;
   };
 
   services.logind.extraConfig = "RuntimeDirectorySize=4G"; # I don't know if that's needed
@@ -219,7 +227,6 @@ in
     polybar
     kitty
     wezterm
-    sxhkd
     picom
     pavucontrol
     blueberry
