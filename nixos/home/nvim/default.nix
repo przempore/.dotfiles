@@ -27,7 +27,7 @@
       vimPlugins.lualine-nvim
       vimPlugins.nvim-fzf
       vimPlugins.vim-qml
-      vimPlugins.catppuccin-vim
+      vimPlugins.catppuccin-nvim
       vimPlugins.vim-be-good
       vimPlugins.cmp-git
       vimPlugins.git-worktree-nvim
