@@ -13,7 +13,7 @@ function vi
 end
 
 function ll
-    exa --tree --level=1 --long --icons --git -lh $argv
+    eza --tree --level=1 --long --icons --git -lh $argv
 end
 
 function lah

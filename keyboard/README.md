@@ -12,7 +12,7 @@ Then you have to update the `sudo vim /usr/share/X11/xkb/rules/evdev.xml` with t
 <variant>
     <configItem>
         <name>real-prog-dvorak</name>
-        <description>English (Real Programmers Dvorak)</description>
+        <description>Polish (Real Programmers Dvorak)</description>
         <vendor>MichaelPaulson</vendor>
     </configItem>
 </variant>

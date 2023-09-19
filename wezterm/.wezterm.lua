@@ -27,11 +27,15 @@ config.window_background_opacity = 0.95
 config.font_size = 10.0
 config.font =
   wezterm.font('JetBrainsMono Nerd Font Mono', { weight = 'Bold', italic = false })
+  -- wezterm.font('Iosevka Nerd Font Mono', { weight = 'Bold', italic = false })
+
 
 -- config.font = wezterm.font_with_fallback {
 --   'JetBrainsMono Nerd Font Mono',
 --   'JetBrainsMono Nerd Font',
 --   'Iosevka Nerd Font Mono',
+--   'Iosevka Nerd Font Mono',
+--   'nonicons',
 -- }
 
 config.leader = { key="a", mods="CTRL", timeout_milliseconds=1000 }
