@@ -43,7 +43,6 @@ vnoremap("<leader>d", "\"_d")
 
 vnoremap("<leader>d", "\"_d")
 
--- This is going to get me cancelled
 inoremap("<C-c>", "<Esc>")
 
 tnoremap("<Esc>", "<C-\\><C-n>")

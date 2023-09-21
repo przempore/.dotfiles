@@ -49,6 +49,7 @@ if [[ $SET_CTRL ]]; then
 	setxkbmap -option altwin:swap_lalt_lwin
 fi
 
-xset r rate 250 40
+# xset r rate 250 40
+xset r rate 220 30
 
 sxhkd -m 1 -c ~/.config/bspwm/sxhkd/sxhkdrc &
