@@ -156,8 +156,8 @@ local packages = require('packer').startup(function()
 
     use {'numToStr/Comment.nvim'} -- "gc" to comment visual regions/lines
     use {'tpope/vim-sleuth'} -- Detect tabstop and shiftwidth automatically
-    use { 'nvim-lualine/lualine.nvim',  -- Fancier statusline
-           require = { 'nvim-tree/nvim-web-devicons', opt = true } }
+    -- use { 'nvim-lualine/lualine.nvim',  -- Fancier statusline
+    --        require = { 'nvim-tree/nvim-web-devicons', opt = true } }
 
     use {'dhananjaylatkar/cscope_maps.nvim'} -- cscope keymaps
 
