@@ -16,9 +16,9 @@ if [ "$VARIANT_EXISTS" -eq "0" ]; then
         -r "//variantTMP" -v "variant" \
         "$XML_FILE"
 
-    echo "Variant 'real-prog-dvorak' added!"
+    echo "Variant 'real-prog-dvorak' added to ${XML_FILE} file!"
 else
-    echo "Variant 'real-prog-dvorak' already exists!"
+    echo "Variant 'real-prog-dvorak' already exists in ${XML_FILE} file!"
 fi
 
 
@@ -32,8 +32,9 @@ SECTION_FILE="./real-prog-dvorak-pl"
 SECTION=$(<"${SECTION_FILE}")
 
 if grep -Fq "xkb_symbols \"real-prog-dvorak\"" "$FILE_PATH"; then
-    echo "Section already exists!"
+    echo "Section already exists in ${FILE_PATH} file!"
 else
     awk -v section="${SECTION}" 'BEGIN {print section}' >> "${FILE_PATH}"
+    echo "Section added to ${FILE_PATH} file!"
 fi
 
