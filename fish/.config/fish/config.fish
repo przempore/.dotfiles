@@ -2,7 +2,7 @@ starship init fish | source
 
 set EDITOR nvim
 
-set -gx PATH $HOME/.cargo/bin $HOME/.local/bin $HOME/.local/bin/private $HOME/.local/share/nvim/lsp_servers/rust $HOME/go/bin $PATH
+set -gx PATH $PATH $HOME/.cargo/bin $HOME/.local/bin $HOME/.local/bin/private $HOME/.local/share/nvim/lsp_servers/rust $HOME/go/bin
 
 function s
     kitty +kitten ssh $argv
@@ -10,6 +10,10 @@ end
 
 function vi
     nvim $argv
+end
+
+function tree
+    eza --tree $argv
 end
 
 function ll
@@ -50,10 +54,6 @@ end
 
 function convert_mkv_to_mp4
     ffmpeg -i $argv[1] -codec copy $argv[2]
-end
-
-function vi
-    nvim $argv
 end
 
 if set -q IS_WEZTERM
