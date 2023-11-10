@@ -3,6 +3,7 @@ local nnoremap = Remap.nnoremap
 local inoremap = Remap.inoremap
 
 require("mason").setup({
+    PATH = "append",
     ui = {
         icons = {
             package_installed = "✓",
