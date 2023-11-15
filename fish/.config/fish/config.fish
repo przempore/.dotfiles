@@ -62,6 +62,8 @@ if set -q IS_WEZTERM
     end
 end
 
+eval (direnv hook fish)
+
 [ -f /home/porebski/.dotfiles/private/fish/config.fish ]; and source /home/porebski/.dotfiles/private/fish/config.fish
 
 # colored man output
