@@ -505,11 +505,11 @@ alt + Tab
 alt + shift + Tab
     bspc desktop -f '^{1-9,10}'
 
-alt + k
-    $HOME/.config/bspwm/scripts/refresh-keyboard.sh
-
-alt + c
-    $HOME/.config/bspwm/scripts/refresh-keyboard.sh --set_CTRL
+# alt + k
+#     $HOME/.config/bspwm/scripts/refresh-keyboard.sh
+#
+# alt + c
+#     $HOME/.config/bspwm/scripts/refresh-keyboard.sh --set_CTRL
 
 #Rotate desktop
 # alt + space
