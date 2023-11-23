@@ -63,6 +63,7 @@ if set -q IS_WEZTERM
 end
 
 eval (direnv hook fish)
+thefuck --alias | source
 
 [ -f /home/porebski/.dotfiles/private/fish/config.fish ]; and source /home/porebski/.dotfiles/private/fish/config.fish
 
