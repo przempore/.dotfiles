@@ -23,6 +23,7 @@ require("mason-lspconfig").setup({
     "jsonls",
     "marksman",
     "gopls",
+    "rnix",
     }
 })
 
@@ -123,6 +124,7 @@ require('lspconfig').gopls.setup {
         },
     },
 }
+require('lspconfig').rnix.setup {};
 vim.api.nvim_create_autocmd('BufWritePre', {
     pattern = '*.go',
     callback = function()
