@@ -27,6 +27,7 @@ function M.format()
         elseif vim.bo.filetype == 'go' then
             vim.cmd('GoFmt')
         elseif vim.bo.filetype == 'python' then
+            vim.cmd('write')
             vim.cmd('!black %')
         else
             print("Can't format", vim.bo.filetype, "file")
