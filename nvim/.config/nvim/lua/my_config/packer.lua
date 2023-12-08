@@ -178,6 +178,8 @@ local packages = require('packer').startup(function()
 
     use {'fatih/vim-go'}
 
+    use({ "stevearc/oil.nvim" })
+
     if is_bootstrap then
         require('packer').sync()
     end

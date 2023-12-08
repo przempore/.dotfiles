@@ -1,6 +1,7 @@
 require "my_config.packer"
 require "my_config.set"
 require "my_config.lsp"
+require "my_config.oil"
 
 local autocmd = vim.api.nvim_create_autocmd 
 local augroup = vim.api.nvim_create_augroup
