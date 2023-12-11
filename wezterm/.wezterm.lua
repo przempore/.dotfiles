@@ -149,7 +149,7 @@ wezterm.on('gui-startup', function(cmd)
   end
 
   if work() then
-    work_setup(args)
+    -- work_setup(args)
   else
     home_setup(args)
   end
