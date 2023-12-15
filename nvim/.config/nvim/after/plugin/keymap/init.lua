@@ -6,6 +6,8 @@ local xnoremap = Remap.xnoremap
 local tnoremap = Remap.tnoremap
 local nmap = Remap.nmap
 
+nnoremap("<leader>pv", ":Ex<CR>",
+    { noremap = true, silent = true, desc = "[misc] File explorer"})
 nnoremap("<leader>u", ":UndotreeShow<CR>",
     { noremap = true, silent = true, desc = "[Undotree] Show"})
 
