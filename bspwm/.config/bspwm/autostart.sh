@@ -42,10 +42,6 @@ run whatsapp-nativefier &
 run signal-desktop &
 run caprine &
 
-if [[ $hostname == "dooku" ]]; then
-  run teams &
-fi
-
 xsetroot -cursor_name left_ptr &
 numlockx on &
 blueberry-tray &
