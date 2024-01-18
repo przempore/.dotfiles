@@ -59,3 +59,18 @@ to unmount:
 udisksctl unmount -b /dev/sda1
 ```
 [source](https://wiki.archlinux.org/title/Udisks#Installation)
+
+## detach/reattach laptops keyboard:
+
+list input sources:</br>
+`xinput list`
+
+locate `AT Translated Set 2 keyboard` note `id` and `slave keyboard (*)` value</br>
+disable keyboard:<vbr>
+`xinput float 11`
+
+reenable keyboard:</br>
+`xinput reattach 11 3`
+
+[source](https://askubuntu.com/a/178741)
+
