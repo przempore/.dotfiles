@@ -26,11 +26,23 @@ git remote set-url origin git@github.com:username/repo-name-here.git
 
 -------------
 ## git worktree
+
+fetching data
+
 [source](https://morgan.cugerone.com/blog/workarounds-to-git-worktree-using-bare-repository-and-cannot-fetch-remote-branches/)
 
 ```
 git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
 ```
+
+[stacoverflow](https://stackoverflow.com/a/25941875)
+
+```bash
+$ git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+$ git config --get remote.origin.fetch
++refs/heads/*:refs/remotes/origin/*
+```
+
 
 ## git rebase
 ```
