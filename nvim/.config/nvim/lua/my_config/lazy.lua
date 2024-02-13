@@ -47,7 +47,11 @@ require('lazy').setup({
     -- git stuff
     {"petertriho/cmp-git"},
     {'ThePrimeagen/git-worktree.nvim'},
-    {'ThePrimeagen/harpoon'},
+    {
+      "ThePrimeagen/harpoon",
+      branch = "harpoon2",
+      dependencies = { "nvim-lua/plenary.nvim" }
+    },
     {
         'lewis6991/gitsigns.nvim',
         config = function()
@@ -156,6 +160,8 @@ require('lazy').setup({
     {"Cassin01/wf.nvim", version = "*", config = function() require("wf").setup() end},
     {'mfussenegger/nvim-lint'},
     {'fatih/vim-go'},
-    { "stevearc/oil.nvim" },
+    { "stevearc/oil.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
 })
 
