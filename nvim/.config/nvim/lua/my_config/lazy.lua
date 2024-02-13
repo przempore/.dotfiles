@@ -105,13 +105,6 @@ require('lazy').setup({
 
     {'hrsh7th/cmp-nvim-lsp-document-symbol'},
 
-    { 'codota/tabnine-nvim', build = "./dl_binaries.sh" },
-
-    {
-      'tzachar/cmp-tabnine',
-      build = './install.sh',
-      dependencies = 'hrsh7th/nvim-cmp',
-    },
     {'rhysd/vim-clang-format'},
     {'mbbill/undotree'},
     {'nvim-tree/nvim-web-devicons'},
