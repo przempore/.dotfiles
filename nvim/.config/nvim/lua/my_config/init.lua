@@ -1,4 +1,4 @@
-require "my_config.packer"
+require "my_config.lazy"
 require "my_config.set"
 require "my_config.lsp"
 
@@ -91,7 +91,11 @@ end
 require('Comment').setup()
 
 -- Turn on lsp status information
-require('fidget').setup()
+require('fidget').setup({
+    text = {
+        spinner = "dots_negative",
+    },
+})
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
