@@ -163,5 +163,45 @@ require('lazy').setup({
     { "stevearc/oil.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
     },
+    {
+        "zbirenbaum/copilot.lua",
+        event = { "BufEnter" },
+        config = function()
+            require("copilot").setup({
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    keymap = {
+                      accept = "<C-j>",
+                      accept_word = false,
+                      accept_line = false,
+                      next = "<M-]>",
+                      prev = "<M-[>",
+                      dismiss = "<C-]>",
+                    },
+                },
+                panel = { enabled = false },
+                filetypes = {
+                  yaml = false,
+                  markdown = false,
+                  help = false,
+                  gitcommit = false,
+                  gitrebase = false,
+                  hgcommit = false,
+                  svn = false,
+                  cvs = false,
+                  ["."] = false,
+                },
+            })
+        end,
+    },
+    {
+        "zbirenbaum/copilot-cmp",
+        event = { "BufEnter" },
+        dependencies = { "zbirenbaum/copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end,
+    },
 })
 
