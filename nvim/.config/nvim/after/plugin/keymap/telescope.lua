@@ -128,6 +128,8 @@ nnoremap("<leader>fs", function() telescope.live_grep({ hidden=true }); end,
     { noremap = true, silent = true, desc = "[telescope] grep string"})
 nnoremap("<leader>gf", function() telescope.git_files({ hidden=true }); end,
     { noremap = true, silent = true, desc = "[telescope] git files"})
+nnoremap("<leader>gl", function() telescope.git_commits( ); end,
+    { noremap = true, silent = true, desc = "[telescope] git commits"})
 nnoremap("<leader>fb", function() telescope.buffers(); end,
     { noremap = true, silent = true, desc = "[telescope] buffers"})
 nnoremap("<leader>fh", function() telescope.help_tags(); end,
