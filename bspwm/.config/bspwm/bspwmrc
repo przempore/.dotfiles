@@ -88,9 +88,6 @@ bspc rule -a Xfce4-settings-manager state=tiled
 if [[ ${essid} == "Grandperspective" ]];then
     bspc rule -a Virt-manager desktop='^2' follow=on
     bspc rule -a org.remmina.Remmina desktop='^3' follow=on
-else
-    bspc rule -a Virt-manager desktop='^3' follow=on
-    bspc rule -a org.remmina.Remmina desktop='^5' follow=on
 fi
 
 bspc rule -a whatsapp-nativefier-d40211 desktop='^9' follow=off
