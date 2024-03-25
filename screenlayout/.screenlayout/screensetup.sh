@@ -58,8 +58,68 @@ function do_bspwm_monitors {
     fi
 }
 
-# TODO: make it hostname dependent
+# function get_active_display_count {
+#     output_config=$(autorandr --config)
+#     # Split the output_config into lines
+#     IFS=$'\n' read -rd '' -a output_lines <<< "$output_config"
+#
+#     # Initialize a dictionary to store output configurations
+#     declare -A output_configs
+#
+#     # Initialize variables to store current output name and configuration
+#     current_output=""
+#     current_config=""
+#
+#     # Iterate over each line
+#     for line in "${output_lines[@]}"; do
+#         # Check if the line starts with "output"
+#         if [[ $line == output* ]]; then
+#             # Save the previous output configuration (if any)
+#             if [[ -n $current_output ]]; then
+#                 output_configs["$current_output"]=$current_config
+#             fi
+#             # Set the current output name
+#             current_output=${line#output }
+#             # Reset the current configuration
+#             current_config=""
+#         else
+#             # Append the line to the current configuration
+#             # current_config+="$line"$'\n'
+#             if [[ $line != "off" ]]; then
+#                 current_config+="$line"$'\n'
+#             else
+#                 current_config+="$line"
+#             fi
+#             fi
+#         done
+#
+#     # Save the last output configuration
+#     if [[ -n $current_output ]]; then
+#         output_configs["$current_output"]=$current_config
+#     fi
+#
+#     Print the output configurations
+#     for output in "${!output_configs[@]}"; do
+#         echo "Output $output:"
+#         echo "${output_configs[$output]}"
+#     done
+#
+#     names=$(xrandr | grep " connected " | awk '{ print$1 }')
+#     # echo "names: ${names}"
+#     local count=0
+#     for name in $names; do
+#         config="${output_configs[$name]}"
+#         # echo "${config}"
+#         if [[ "${config}" != "off" ]]; then
+#             # echo "output_configs[${name}]: ${output_configs[$name]}"
+#             ((count = count+1))
+#         fi
+#     done
+#
+#     return $count
+# }
 
+autorandr --load default
 
 connected=`xrandr --query | grep -w "connected" | awk '{print $1}'`
 count=`xrandr | grep " connected " | awk '{ print$1 }' | wc -l`
