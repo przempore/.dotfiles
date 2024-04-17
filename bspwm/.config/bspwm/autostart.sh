@@ -18,7 +18,10 @@ function get_location {
 hostname=`hostnamectl hostname`
 essid=`iwconfig wlp0s20f3 | awk -F\" '{print $2}'`
 
-$HOME/.screenlayout/screensetup.sh bspwm &
+# $HOME/.screenlayout/screensetup.sh bspwm &
+autorandr --load default
+bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 10
+
 $HOME/.config/polybar/launch.sh &
 $HOME/.config/bspwm/scripts/refresh-keyboard.sh --variant=dvorak &
 
