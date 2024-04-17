@@ -83,7 +83,8 @@ super + v
 
 #urxvt
 super + Return
-    kitty
+    wezterm
+    # kitty
 
 #Xkill
 super + Escape
