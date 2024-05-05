@@ -48,27 +48,27 @@ config.keys = {
   {
     key = '|',
     mods = 'SHIFT|LEADER',
-    action = wezterm.action.SplitHorizontal{domain="CurrentPaneDomain"},
+    action = act.SplitHorizontal{domain="CurrentPaneDomain"},
   },
   {
     key = '-',
     mods = 'LEADER',
-    action = wezterm.action.SplitVertical{domain="CurrentPaneDomain"},
+    action = act.SplitVertical{domain="CurrentPaneDomain"},
   },
   {
     key = 'h',
     mods = 'SHIFT|CTRL',
-    action = wezterm.action.ActivateCopyMode,
+    action = act.ActivateCopyMode,
   },
   {
     key = 'Enter',
     mods = 'ALT',
-    action = wezterm.action.DisableDefaultAssignment,
+    action = act.DisableDefaultAssignment,
   },
   {
     key = 'w',
     mods = 'LEADER',
-    action = wezterm.action.ShowTabNavigator,
+    action = act.ShowTabNavigator,
   },
   {
     key = 'b',
@@ -82,7 +82,7 @@ config.keys = {
   {
     key = 'l',
     mods = 'LEADER',
-    action = wezterm.action.ActivateLastTab,
+    action = act.ActivateLastTab,
   },
   -- Switch to the default workspace
   {
@@ -139,6 +139,9 @@ config.keys = {
       end),
     },
   },
+  {key = "S", mods = "LEADER", action = act{EmitEvent = "save_session"}},
+  {key = "L", mods = "LEADER", action = act{EmitEvent = "load_session"}},
+  {key = "R", mods = "LEADER", action = act{EmitEvent = "restore_session"}},
 }
 
 -- default is true, has more "native" look
