@@ -92,14 +92,15 @@ config.keys = {
       name = 'default',
     },
   },
-  -- Switch to a monitoring workspace, which will have `top` launched into it
+  -- Switch to a second-brain workspace, which will have `nvim` launched into it
   {
-    key = 'u',
+    key = 's',
     mods = 'CTRL|SHIFT',
     action = act.SwitchToWorkspace {
-      name = 'monitoring',
+      name = 'second-brain',
       spawn = {
-        args = { 'btop' },
+        args = { 'nvim', '.' },
+        cwd = os.getenv("HOME") .. '/Projects/second-brain',
       },
     },
   },
@@ -159,8 +160,6 @@ config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 config.freetype_load_target = "HorizontalLcd"
 
-local system_username = os.getenv('USERNAME');
-print(system_username);
 config.ssh_domains = {
   {
     -- This name identifies the domain
