@@ -3,7 +3,7 @@ local nnoremap = require "my_config.keymap".nnoremap
 require('telescope').setup {
     defaults = {
         layout_config = {
-            vertical = { width = 0.5 },
+            vertical = { width = 0.8 },
         },
         -- other layout configuration here
         file_ignore_patterns = {
@@ -117,6 +117,8 @@ nnoremap("<C-p>", ":Telescope<cr>",
     { noremap = true, silent = true, desc = "[telescope] Telescope"})
 nnoremap("<C-_>", function() telescope.current_buffer_fuzzy_find(); end,
     { noremap = true, silent = true, desc = "[telescope] current buffer fuzzy find"})
+nnoremap("<C-/>", function() telescope.current_buffer_fuzzy_find(); end,
+    { noremap = true, silent = true, desc = "[telescope] current buffer fuzzy find"})
 nnoremap("<leader>ff", function() telescope.find_files({ hidden=true }); end,
     { noremap = true, silent = true, desc = "[telescope] find files"})
 nnoremap("<leader>gs", function() telescope.grep_string({ hidden=true }); end,
@@ -128,8 +130,6 @@ nnoremap("<leader>fs", function() telescope.live_grep({ hidden=true }); end,
     { noremap = true, silent = true, desc = "[telescope] grep string"})
 nnoremap("<leader>gf", function() telescope.git_files({ hidden=true }); end,
     { noremap = true, silent = true, desc = "[telescope] git files"})
-nnoremap("<leader>gl", function() telescope.git_commits( ); end,
-    { noremap = true, silent = true, desc = "[telescope] git commits"})
 nnoremap("<leader>fb", function() telescope.buffers(); end,
     { noremap = true, silent = true, desc = "[telescope] buffers"})
 nnoremap("<leader>fh", function() telescope.help_tags(); end,
@@ -144,4 +144,3 @@ nnoremap("<leader>gwt", ":Telescope git_worktree git_worktrees<cr>",
     { noremap = true, silent = true, desc = "[telescope] git worktrees"})
 nnoremap("<leader>gwc", ":Telescope git_worktree create_git_worktree<cr>",
     { noremap = true, silent = true, desc = "[telescope] create git worktree"})
-
