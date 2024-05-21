@@ -83,7 +83,7 @@ super + v
 
 #urxvt
 super + Return
-    wezterm
+    wezterm start --always-new-process
     # kitty
 
 #Xkill
