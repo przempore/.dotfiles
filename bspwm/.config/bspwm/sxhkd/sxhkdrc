@@ -359,7 +359,7 @@ super + y
 
 #Picom Toggle
 ctrl + alt + o
-    ~/.config/bspwm/scripts/picom-toggle.sh
+    obsidian
 
 #################################################################
 # SUPER + KEYS

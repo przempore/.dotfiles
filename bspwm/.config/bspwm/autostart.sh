@@ -36,14 +36,13 @@ run xfce4-power-manager &
 run volumeicon &
 run env QT_SCALE_FACTOR=1.01 keepassxc &
 run xfce4-clipman &
-run barrier &
+# run barrier &
 run conky -c $HOME/.config/bspwm/system-overview &
 
 run firefox-developer-edition &
 
 run whatsapp-nativefier &
 run signal-desktop &
-run caprine &
 
 xsetroot -cursor_name left_ptr &
 numlockx on &
