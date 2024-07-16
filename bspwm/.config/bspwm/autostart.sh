@@ -39,7 +39,7 @@ run xfce4-clipman &
 # run barrier &
 run conky -c $HOME/.config/bspwm/system-overview &
 
-run firefox-developer-edition &
+run firefox-nightly &
 
 run whatsapp-nativefier &
 run signal-desktop &
