@@ -156,6 +156,9 @@ ctrl + alt + g
 ctrl + alt + f
      firefox-nightly
 
+ctrl + alt + z
+     zen-browser
+
 #arcolinux-logout
 ctrl + alt + k
      keepassxc
