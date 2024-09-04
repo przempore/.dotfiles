@@ -51,5 +51,3 @@ fi
 
 # xset r rate 250 40
 xset r rate 200 25
-
-sxhkd -m 1 -c ~/.config/bspwm/sxhkd/sxhkdrc &

@@ -148,10 +148,6 @@ ctrl + alt + Prior
 ctrl + alt + b
      bluemail
 
-#Catfish
-ctrl + alt + c
-    catfish
-
 #Chromium
 ctrl + alt + g
     brave
@@ -192,10 +188,6 @@ ctrl + alt + s
 ctrl + alt + Return
     urxvt
 
-#urxvt
-ctrl + alt + t
-    kitty tmux
-
 #volume control
 ctrl + alt + v
     pavucontrol
@@ -230,8 +222,8 @@ alt + F3
 #################################################################
 
 #Wallpaper trash
-alt + shift + t
-    variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
+# alt + shift + t
+#     variety -t && wal -i $(cat $HOME/.config/variety/wallpaper/wallpaper.jpg.txt)&
 
 #Wallpaper next
 alt + shift + n
