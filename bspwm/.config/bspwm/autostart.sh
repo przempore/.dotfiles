@@ -25,7 +25,9 @@ bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 10
 $HOME/.config/polybar/launcher.sh &
 $HOME/.config/bspwm/scripts/refresh-keyboard.sh --variant=dvorak &
 
-run sxhkd -m 1 -c ~/.config/bspwm/sxhkd/sxhkdrc &
+run sxhkd &
+
+run wezterm &
 
 get_location
 run redshift -l $location &
