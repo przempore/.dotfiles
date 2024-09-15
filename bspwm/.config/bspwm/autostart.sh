@@ -22,7 +22,7 @@ essid=`iwconfig wlp0s20f3 | awk -F\" '{print $2}'`
 autorandr --load default
 bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 10
 
-$HOME/.config/polybar/launch.sh &
+$HOME/.config/polybar/launcher.sh &
 $HOME/.config/bspwm/scripts/refresh-keyboard.sh --variant=dvorak &
 
 run sxhkd -m 1 -c ~/.config/bspwm/sxhkd/sxhkdrc &
@@ -39,10 +39,10 @@ run xfce4-clipman &
 # run barrier &
 run conky -c $HOME/.config/bspwm/system-overview &
 
-run firefox-nightly &
+# run firefox-nightly &
 
-run whatsapp-nativefier &
-run signal-desktop &
+# run whatsapp-nativefier &
+# run signal-desktop &
 
 xsetroot -cursor_name left_ptr &
 numlockx on &
