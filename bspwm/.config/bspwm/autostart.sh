@@ -16,39 +16,35 @@ function get_location {
     echo "[bspwm autostart] location for redshift: ${location}" | systemd-cat
 }
 hostname=`hostnamectl hostname`
-essid=`iwconfig wlp0s20f3 | awk -F\" '{print $2}'`
 
 # $HOME/.screenlayout/screensetup.sh bspwm &
-autorandr --load default
+$HOME/.screenlayout/home_monitor.sh
+# autorandr --load default
 bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 10
 
-$HOME/.config/polybar/launcher.sh &
-$HOME/.config/bspwm/scripts/refresh-keyboard.sh --variant=dvorak &
+$HOME/.config/polybar/launcher.sh
+setxkbmap -layout pl -variant real-prog-dvorak
+xset r rate 200 25
 
-run sxhkd &
+run sxhkd
 
-run wezterm &
+run kitty
 
 get_location
-run redshift -l $location &
-run variety &
-run nm-applet &
-run pamac-tray &
-run xfce4-power-manager &
-run volumeicon &
-run env QT_SCALE_FACTOR=1.01 keepassxc &
-run xfce4-clipman &
+run redshift -l $location
+run variety
+run nm-applet
+run pamac-tray
+run xfce4-power-manager
+# run volumeicon &
+run env QT_SCALE_FACTOR=1.01 keepassxc
+run xfce4-clipman
 # run barrier &
-run conky -c $HOME/.config/bspwm/system-overview &
+run conky -c $HOME/.config/bspwm/system-overview
 
-# run firefox-nightly &
-
-# run whatsapp-nativefier &
-# run signal-desktop &
-
-xsetroot -cursor_name left_ptr &
-numlockx on &
-blueberry-tray &
+xsetroot -cursor_name left_ptr
+numlockx on
+blueberry-tray
 
 if [[ $hostname == "Ilum" ]]; then 
   picom --config $HOME/.config/bspwm/picom_ilum.conf &

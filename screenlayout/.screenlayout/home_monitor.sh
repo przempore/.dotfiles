@@ -1,3 +1,2 @@
 #!/bin/sh
-echo "home configuration script"
-xrandr --output eDP1 --mode 1920x1080 --pos 0x0 --rotate normal --output DP1 --off --output HDMI1 --off --output HDMI2 --primary --mode 3840x1600 --pos 1920x0 --rotate normal --output VIRTUAL1 --off
+xrandr --output DP-0 --off --output DP-1 --off --output HDMI-0 --off --output DP-2 --primary --mode 3840x1600 --pos 0x0 --rotate normal --output DP-3 --off --output HDMI-1 --off --output DP-4 --off --output DP-5 --off
