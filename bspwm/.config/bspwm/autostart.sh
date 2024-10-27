@@ -18,7 +18,7 @@ function get_location {
 hostname=`hostnamectl hostname`
 
 # $HOME/.screenlayout/screensetup.sh bspwm &
-$HOME/.screenlayout/home_monitor.sh
+# $HOME/.screenlayout/home_monitor.sh
 # autorandr --load default
 bspc monitor DP-2 -d 1 2 3 4 5 6 7 8 9 10
 
